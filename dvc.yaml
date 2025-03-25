@@ -49,3 +49,10 @@ stages:
 #     x: step
 
 # cmd....command, deps....dependencies(data from the previous stage and the current file)
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
