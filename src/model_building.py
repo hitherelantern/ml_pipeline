@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 import yaml
 
 # Ensure the "logs" directory exists
-log_dir = '../logs'
+log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)
 
 # logging configuration
@@ -119,14 +119,14 @@ def save_model(model, file_path: str) -> None:
 
 def main():
     try:
-        params = load_params('../params.yaml')['model_building']
-        train_data = load_data('../data/processed/train_tfidf.csv')
+        params = load_params('params.yaml')['model_building']
+        train_data = load_data('data/processed/train_tfidf.csv')
         X_train = train_data.iloc[:, :-1].values
         y_train = train_data.iloc[:, -1].values
 
         clf = train_model(X_train, y_train, params)
         
-        model_save_path = '../models/model.pkl'
+        model_save_path = 'models/model.pkl'
         save_model(clf, model_save_path)
 
     except Exception as e:
